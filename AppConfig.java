@@ -1,12 +1,18 @@
 public class AppConfig {
+    private static final AppConfig instance = new AppConfig();
+
     private String theme;
     private String language;
 
-    public AppConfig() {
+    private AppConfig() {
         // Load default settings
         this.theme = "Light";
         this.language = "EN";
-        System.out.println("New AppConfig instance created!");
+        // System.out.println("New AppConfig instance created!"); Solo se crea una en singleton
+    }
+
+    public static AppConfig getInstance() {
+        return instance;
     }
 
     public String getTheme() { return theme; }
